@@ -8,6 +8,8 @@ data = json.load(open('data.json'))
 def sel(word):
     if word in data:
         return data[word]
+    elif word.title() in data:
+        return data[word.title()]
     else:
         nw = get_close_matches(word, data.keys(), n=1)
         print('Did you mean ' + nw[0] + '? y or n?')
